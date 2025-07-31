@@ -11,3 +11,4 @@ curl -s -X POST \
 	-c $COOKIE_JAR \
 	"$API_BASE/api/auth/logout" \
 	-o /dev/null -w "Codigo HTTP: %{http_code}\n"
+	
