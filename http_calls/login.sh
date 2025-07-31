@@ -9,8 +9,8 @@ USER_NAME="${1:-admin}"
 PASSWORD="${2-admin}"
 
 
-curl -s -c "COOKIE_JAR" \
+curl -s -c "$COOKIE_JAR" \
 	-X POST "$API_BASE/api/auth/login/" \
 	-H "Content-Type: application/json" \
-	-d '{"username":"USER_NAME", "password":"PASSWORD"}' 
+	-d "{\"username\":\"$USER_NAME\", \"password\":\"$PASSWORD\"}"
 
