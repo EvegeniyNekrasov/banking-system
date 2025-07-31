@@ -1,6 +1,12 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
-import LoginPage from "../features/auth/LoginPage";
-import DashboardPage from "../features/dashboard/DashboardPage";
+import ProtectedRoute from "./ProtectedRoute";
+import BaseLayout from "../features/Layoutes/BaseLayoute";
+
+const Login = React.lazy(() => import("../features/auth/LoginPage"));
+const Dashboard = React.lazy(() =>
+    import("../features/dashboard/DashboardPage")
+);
 
 export default function AppRoutes() {
     return (
@@ -8,13 +14,17 @@ export default function AppRoutes() {
             <Routes>
                 <Route
                     path="/login"
-                    element={<LoginPage />}
+                    element={<Login />}
                 />
-                <Route
-                    path="/"
-                    element={<DashboardPage />}
-                />
+                <Route element={<ProtectedRoute />}>
+                    <Route element={<BaseLayout />}>
+                        <Route
+                            index
+                            element={<Dashboard />}
+                        />
+                    </Route>
+                </Route>
             </Routes>
         </BrowserRouter>
-    )
+    );
 }
