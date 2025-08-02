@@ -6,7 +6,7 @@ API_BASE="$HOST:$PORT"
 COOKIE_JAR="$(dirname "$0")/cookies.txt"
 
 USER_NAME="${1:-admin}"
-PASSWORD="${2-admin}"
+PASSWORD="${2:-admin}"
 
 
 curl -s -c "$COOKIE_JAR" \

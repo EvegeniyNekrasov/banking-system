@@ -7,6 +7,7 @@ import morgan from "morgan";
 import authRoutes from "./routes/auth.routes.js";
 import error_handler from "./middlewares/error.middleware.js";
 import logger from "./config/logger.js";
+import userRoutes from "./routes/user.route.js";
 
 const PORT = process.env.PORT || 4000;
 const HOST = process.env.HOST || "http://localhost";
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/auth/", authRoutes);
+app.use("/api/user", userRoutes);
 
 app.use(error_handler);
 
