@@ -268,9 +268,6 @@ export const verifyOTP = async_handler(
     { requiredFields: ["email", "otp", "purpose"] },
     async (req, res) => {
         const { email, otp, purpose } = req.body;
-        console.log("email: ", email);
-        console.log("otp: ", otp);
-        console.log("purpose: ", purpose);
 
         logger.info("OTP verification request received", { email, purpose });
 
